@@ -78,7 +78,7 @@ function loop() {
   }
 
   // Score Builder
-  context.font = "50px solid";
+  context.font ="50px solid";
   context.fillText(scoreLeft, 250, 100);
 
   context.font ="50px solid";
