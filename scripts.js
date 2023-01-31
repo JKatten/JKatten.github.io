@@ -4,6 +4,8 @@ const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
 
+const scoreRight = document.getElementById("scoreRight");
+const scoreLeft = document.getElementById("scoreLeft");
 var paddleSpeed = 6;
 var ballSpeed = 5;
 
@@ -97,7 +99,12 @@ function loop() {
   // reset ball if it goes past paddle (but only if we haven't already done so)
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
     ball.resetting = true;
-
+    if(ball.x < 0){
+      scoreLeft++;
+    }
+    else{
+      scoreRight++;
+    }
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
       ball.resetting = false;
