@@ -99,12 +99,6 @@ function loop() {
   // reset ball if it goes past paddle (but only if we haven't already done so)
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
     ball.resetting = true;
-    if(ball.x < 0){
-      scoreLeft++;
-    }
-    else{
-      scoreRight++;
-    }
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
       ball.resetting = false;
