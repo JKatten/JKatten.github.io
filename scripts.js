@@ -100,6 +100,8 @@ function loop() {
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
     ball.resetting = true;
 
+    scoreLeft++;
+    scoreRight++;
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
       ball.resetting = false;
