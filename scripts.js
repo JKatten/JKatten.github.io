@@ -77,6 +77,13 @@ function loop() {
     rightPaddle.y = maxPaddleY;
   }
 
+  // Score Builder
+  context.font = "50px solid";
+  context.fillText(scoreLeft, 250, 100);
+
+  context.font ="50px solid";
+  context.fillText(scoreRight, 450, 100);
+
   // draw paddles
   context.fillStyle = 'white';
   context.fillRect(leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height);
@@ -95,13 +102,6 @@ function loop() {
     ball.y = canvas.height - grid * 2;
     ball.dy *= -1;
   }
-
-  // Score Builder
-  context.font = "50px solid";
-  context.fillText(scoreLeft, 250, 100);
-
-  context.font ="50px solid";
-  context.fillText(scoreRight, 450, 100);
 
   // reset ball if it goes past paddle (but only if we haven't already done so)
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
