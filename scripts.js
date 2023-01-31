@@ -96,12 +96,23 @@ function loop() {
     ball.dy *= -1;
   }
 
+  // Score Builder
+  ctx.font = "50px serif";
+  ctx.fillText(scoreLeft, 250, 100);
+
+  ctx.font ="50px serif";
+  ctx.fillText(scoreRight, 450, 100);
+
   // reset ball if it goes past paddle (but only if we haven't already done so)
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
     ball.resetting = true;
 
-    scoreLeft++;
-    scoreRight++;
+    if(ball.x < 0){
+      scoreLeft++;
+    }
+    if(ball.x > canvas.width){
+      scoreRight++;
+    }
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
       ball.resetting = false;
