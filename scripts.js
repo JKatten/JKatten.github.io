@@ -97,11 +97,11 @@ function loop() {
   }
 
   // Score Builder
-  ctx.font = "50px solid";
-  ctx.fillText(scoreLeft, 250, 100);
+  context.font = "50px solid";
+  context.fillText(scoreLeft, 250, 100);
 
-  ctx.font ="50px solid";
-  ctx.fillText(scoreRight, 450, 100);
+  context.font ="50px solid";
+  context.fillText(scoreRight, 450, 100);
 
   // reset ball if it goes past paddle (but only if we haven't already done so)
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
