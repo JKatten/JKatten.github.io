@@ -79,10 +79,10 @@ function loop() {
 
   // Score Builder
   context.font ="50px solid";
-  context.fillText(scoreLeft, 250, -50);
+  context.fillText(scoreLeft, 150, 100);
 
   context.font ="50px solid";
-  context.fillText(scoreRight, 450, -50);
+  context.fillText(scoreRight, 550, 100);
 
   // draw paddles
   context.fillStyle = 'white';
