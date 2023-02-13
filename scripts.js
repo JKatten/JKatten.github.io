@@ -120,6 +120,37 @@ function loop() {
       ball.y = canvas.height / 2;
     }, 400);
   }
+  
+  
+  //give paddle AI
+  leftPaddle.dy = ball.dy;
+  
+  if (collides(ball, rightPaddle))   {
+    levelOfError = Math.random();                             
+    levelOfErrorTotal = levelOfErrorTotal + levelOfError; }
+
+  if((ball.x < 0) || (ball.x > canvas.width)) {
+    levelofErrorTotal = 0;
+    leftPaddle.dy = ball.dy;
+  }
+    
+  if(levelOfErrorTotal >= 1) {
+    leftPaddle.dy = ball.dy / 1.1;  }
+  if(levelOfErrorTotal >= 2) {
+    leftPaddle.dy = ball.dy / 1.2; 
+  } 
+  if(levelOfErrorTotal >= 3) {
+    leftPaddle.dy = ball.dy / 1.25; 
+  } 
+  if(levelOfErrorTotal >= 4) {
+    leftPaddle.dy = ball.dy / 1.5; 
+  } 
+  
+
+  //game over
+  if((scoreLeft === 7) || (scoreRight === 7)) {
+    window.location.href = "gameover.html";
+  }
 
   // check to see if ball collides with paddle. if they do change x velocity
   if (collides(ball, leftPaddle)) {
