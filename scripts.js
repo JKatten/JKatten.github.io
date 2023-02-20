@@ -9,6 +9,10 @@ var scoreRight = 0;
 var paddleSpeed = 6;
 var ballSpeed = 5;
 
+var levelOfError = 0;
+var levelOfErrorTotal = 0;
+
+
 const leftPaddle = {
   // start in the middle of the game on the left side
   x: grid * 2,
@@ -113,6 +117,10 @@ function loop() {
     if(ball.x > canvas.width){
       scoreRight++;
     }
+    
+
+    
+    
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
       ball.resetting = false;
@@ -120,8 +128,7 @@ function loop() {
       ball.y = canvas.height / 2;
     }, 400);
   }
-  
-  
+
   //give paddle AI
   leftPaddle.dy = ball.dy;
   
@@ -151,7 +158,7 @@ function loop() {
   if((scoreLeft === 7) || (scoreRight === 7)) {
     window.location.href = "gameover.html";
   }
-
+  
   // check to see if ball collides with paddle. if they do change x velocity
   if (collides(ball, leftPaddle)) {
     ball.dx *= -1;
